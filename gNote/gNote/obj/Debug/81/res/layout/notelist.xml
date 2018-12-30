@@ -1,0 +1,42 @@
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" xmlns:android="http://schemas.android.com/apk/res/android"><!--
+	<TextView
+  android:text="Text: "
+  android:textAppearance="?android:attr/textAppearanceMedium"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:id="@+id/noteTextTitle" />
+  <TextView
+android:text="..."
+android:textAppearance="?android:attr/textAppearanceMedium"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_below="@id/noteTextTitle"
+android:id="@+id/noteTextContent" />
+  <TextView
+android:text="Creation date: "
+android:textAppearance="?android:attr/textAppearanceMedium"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_below="@id/noteTextContent"
+android:id="@+id/noteCreationDateTitle" />
+  <TextView
+android:text="..."
+android:textAppearance="?android:attr/textAppearanceMedium"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_below="@id/noteCreationDateTitle"
+android:id="@+id/noteCreationDateContent" />
+	  <TextView
+android:text="Editing date: "
+android:textAppearance="?android:attr/textAppearanceMedium"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_below="@id/noteCreationDateContent"
+android:id="@+id/noteEditingDateTitle" />
+  <TextView
+android:text="..."
+android:textAppearance="?android:attr/textAppearanceMedium"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_below="@id/noteEditingDateTitle"
+android:id="@+id/noteEditingDateContent" /> --><ListView android:tooltipText="labas" android:minWidth="25px" android:minHeight="25px" android:layout_width="match_parent" android:layout_height="match_parent" android:id="@android:id/list" /></LinearLayout>

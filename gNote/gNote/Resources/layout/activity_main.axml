@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:minWidth="25px"
+	android:minHeight="25px"
+	android:gravity="fill_horizontal">
+	<Button
+		android:text="Save"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/buttonSave" />
+	<Button
+		android:text="List"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/buttonList"
+		android:layout_below="@id/buttonSave" />
+	<EditText
+		android:layout_below="@id/buttonList"
+		android:layout_width="371.5dp"
+		android:layout_height="228.0dp"
+		android:minWidth="25px"
+		android:minHeight="25px"
+		android:id="@+id/textInputNote"
+		android:capitalize="sentences"
+		android:gravity="left|top"
+		android:fadeScrollbars="true"
+		android:layout_marginRight="10dp"
+		android:layout_marginLeft="10dp"
+		android:layout_alignParentBottom="true"/>
+</RelativeLayout>
