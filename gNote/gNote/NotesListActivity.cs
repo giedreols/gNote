@@ -14,11 +14,9 @@ namespace gNote
     [Activity(Label = "NotesListActivity")]
     public class NotesListActivity : ListActivity
     {
-        //string[] items;
-        IList<Note> items;
-
-        public static Guid Id;
-        public static DateTime CreationDate;
+        //string[] _items;
+        private IList<Note> _items;
+        private TableQuery<Note> _table;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -30,12 +28,12 @@ namespace gNote
 
             //// display list
             //noteTextContent.Text = Note.Text;
-            //noteCreationDateContent.Text = Note.CreationDate.ToString();
+            //noteCreationDateContent.Text = Note.CurrentItemCreationDate.ToString();
             //noteEditingDateContent.Text = Note.EditingDate.ToString();
 
             //// retrieve data from shared preferences        
-            //items = new string[] { "cats", "cucumbers", "dragons" };
-            //ListAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, items);
+            //_items = new string[] { "cats", "cucumbers", "dragons" };
+            //ListAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, _items);
 
             //var localNotes = MainActivity.LocalNotes;
 
@@ -48,31 +46,28 @@ namespace gNote
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.noteList);
 
-            var table = Constants.Db.Table<Note>();
+            _table = Constants.Db.Table<Note>();
+            _items = new List<Note>();
 
-            items = new List<Note>();
-
-            foreach (var item in table)
+            foreach (var item in _table)
             {
-                Note myNote = new Note(item.Id, item.Text, item.CreationDate, item.EditingDate);
-                items.Add(myNote);
+                var myNote = new Note(item.Id, item.Text, item.CreationDate, item.EditingDate);
+                _items.Add(myNote);
             }
 
-            ListAdapter = new ArrayAdapter<Note>(this, Android.Resource.Layout.SimpleListItem1, items.ToArray());
+            ListAdapter = new ArrayAdapter<Note>(this, Android.Resource.Layout.SimpleListItem2, _items.ToArray());
         }
 
         protected override void OnListItemClick(ListView l, View v, int position, long id)
         {
             base.OnListItemClick(l, v, position, id);
 
-            var selectedItem = items[position];
+            var selectedItem = _items[position];
 
-            Id = selectedItem.Id;
-            CreationDate = selectedItem.CreationDate;
+            Constants.CurrentItemGuid = selectedItem.Id;
+            Constants.CurrentItemCreationDate = selectedItem.CreationDate;
 
-            // openn NoteEditingAtivity
-            var intent = new Intent(this, typeof(NoteEditingActivity));
-            StartActivity(intent);
+            StartActivity(new Intent(this, typeof(NoteEditingActivity)));
 
             //    //shows toast popup of the item text
             //Android.Widget.Toast.MakeText(this, selectedItem, ToastLength.Short).Show();

@@ -3256,9 +3256,6 @@ containing a value of this type.
         public static int Animation_AppCompat_DropDownUp=0x7f0a0098;
         public static int Animation_AppCompat_Tooltip=0x7f0a0099;
         public static int Animation_Design_BottomSheetDialog=0x7f0a015f;
-        /**  Base application theme. 
-         */
-        public static int AppTheme=0x7f0a0180;
         public static int Base_AlertDialog_AppCompat=0x7f0a009a;
         public static int Base_AlertDialog_AppCompat_Light=0x7f0a009b;
         public static int Base_Animation_AppCompat_Dialog=0x7f0a009c;

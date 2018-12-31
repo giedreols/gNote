@@ -3,7 +3,7 @@ using System;
 
 namespace gNote.DataStorage
 {
-    class Note
+    public class Note
     {
         [PrimaryKey]
         public Guid Id { get; set; }
